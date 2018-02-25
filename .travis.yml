@@ -1,0 +1,17 @@
+language: java
+sudo: false
+install: true
+addons:
+  sonarcloud:
+    organization: "cbaxes-github"
+    token:
+      secure: "a1ec9a50c3350632bbc2984254f5f99724f966c3"
+jdk:
+  - oraclejdk8
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+      
